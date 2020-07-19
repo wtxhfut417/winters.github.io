@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>微积分 | winters的袋底洞</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="导数     复合求导公式 乘法求导法则 链式求导法则   指数的导数dx dy的意义在于坐标的微小变化，即是点的移动，而在经历了dx dy的微小变化后，这个点仍然落在原方程上，也就是ds&#x3D;0左边和右边的d值一样，等式依然成立，点仍然落在我的函数曲线上点可以落在我曲线上的话，在步长很小的情况下，相当于在切线上，也就是说此时dy&#x2F;dx就是导数  求取极限 因为实在逼近的过程中，实际上是一个很小的dx">
+<meta property="og:type" content="article">
+<meta property="og:title" content="微积分">
+<meta property="og:url" content="http://yoursite.com/2020/07/19/%E5%BE%AE%E7%A7%AF%E5%88%86/index.html">
+<meta property="og:site_name" content="winters的袋底洞">
+<meta property="og:description" content="导数     复合求导公式 乘法求导法则 链式求导法则   指数的导数dx dy的意义在于坐标的微小变化，即是点的移动，而在经历了dx dy的微小变化后，这个点仍然落在原方程上，也就是ds&#x3D;0左边和右边的d值一样，等式依然成立，点仍然落在我的函数曲线上点可以落在我曲线上的话，在步长很小的情况下，相当于在切线上，也就是说此时dy&#x2F;dx就是导数  求取极限 因为实在逼近的过程中，实际上是一个很小的dx">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://yoursite.com/2020/07/19/%E5%BE%AE%E7%A7%AF%E5%88%86/:/b2b58c8c0e174464be71bc8287054437">
+<meta property="og:image" content="http://yoursite.com/2020/07/19/%E5%BE%AE%E7%A7%AF%E5%88%86/:/a23c9f2a6b01476eb1081a9d03621fd7">
+<meta property="og:image" content="http://yoursite.com/2020/07/19/%E5%BE%AE%E7%A7%AF%E5%88%86/:/1c557ea1883545578cea6d14273b4cb0">
+<meta property="og:image" content="http://yoursite.com/2020/07/19/%E5%BE%AE%E7%A7%AF%E5%88%86/:/2e754c7921d946b9b67c220548f8c5bb">
+<meta property="og:image" content="http://yoursite.com/2020/07/19/%E5%BE%AE%E7%A7%AF%E5%88%86/:/45d6493e69eb46c6b1e98fcb78c9c4cb">
+<meta property="og:image" content="http://yoursite.com/2020/07/19/%E5%BE%AE%E7%A7%AF%E5%88%86/:/a66ba452931b4c9681480ab48e52e65c">
+<meta property="og:image" content="http://yoursite.com/2020/07/19/%E5%BE%AE%E7%A7%AF%E5%88%86/:/5b9719a50f444ce09362b0e4f52fb714">
+<meta property="og:image" content="http://yoursite.com/2020/07/19/%E5%BE%AE%E7%A7%AF%E5%88%86/:/36ac1c6770a847189025a14d78536f16">
+<meta property="og:image" content="http://yoursite.com/2020/07/19/%E5%BE%AE%E7%A7%AF%E5%88%86/:/c037293c39a240ad93d0c40f3e1a8c0d">
+<meta property="og:image" content="http://yoursite.com/2020/07/19/%E5%BE%AE%E7%A7%AF%E5%88%86/:/e8a336659fe44bae902b905efa8a08fa">
+<meta property="og:image" content="http://yoursite.com/2020/07/19/%E5%BE%AE%E7%A7%AF%E5%88%86/:/3ff8bec76f94404fa26805ae6e8f7270">
+<meta property="og:image" content="http://yoursite.com/2020/07/19/%E5%BE%AE%E7%A7%AF%E5%88%86/:/d70e4f0b588243c293f88cd551a3a864">
+<meta property="og:image" content="http://yoursite.com/2020/07/19/%E5%BE%AE%E7%A7%AF%E5%88%86/:/64ab627b6a8246e7b03ae5d85b1eb7dc">
+<meta property="og:image" content="http://yoursite.com/2020/07/19/%E5%BE%AE%E7%A7%AF%E5%88%86/:/4f44e07f330d430e86e8aec2b37a8d64">
+<meta property="og:image" content="http://yoursite.com/2020/07/19/%E5%BE%AE%E7%A7%AF%E5%88%86/:/3756faa7e691462183e30604c02d434b">
+<meta property="og:image" content="http://yoursite.com/2020/07/19/%E5%BE%AE%E7%A7%AF%E5%88%86/:/1f2e475f80334751b8c6128cffc30e74">
+<meta property="og:image" content="http://yoursite.com/2020/07/19/%E5%BE%AE%E7%A7%AF%E5%88%86/:/3be9828eb6f047b783841b4a783d4a0d">
+<meta property="og:image" content="http://yoursite.com/2020/07/19/%E5%BE%AE%E7%A7%AF%E5%88%86/:/a48e06cf07744b279ce447e22c93da41">
+<meta property="og:image" content="http://yoursite.com/2020/07/19/%E5%BE%AE%E7%A7%AF%E5%88%86/:/3ae1c730e24a44df90f50939d2b2f59d">
+<meta property="article:published_time" content="2020-07-19T11:08:03.000Z">
+<meta property="article:modified_time" content="2020-07-19T11:08:55.509Z">
+<meta property="article:author" content="winters">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/07/19/%E5%BE%AE%E7%A7%AF%E5%88%86/:/b2b58c8c0e174464be71bc8287054437">
+  
+    <link rel="alternate" href="/atom.xml" title="winters的袋底洞" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">winters的袋底洞</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-微积分" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/07/19/%E5%BE%AE%E7%A7%AF%E5%88%86/" class="article-date">
+  <time datetime="2020-07-19T11:08:03.000Z" itemprop="datePublished">2020-07-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      微积分
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>导数</strong></p>
+<p><img src=":/b2b58c8c0e174464be71bc8287054437" alt="2f184d3978b9a8fa116f761167b914c2.png"></p>
+<p><img src=":/a23c9f2a6b01476eb1081a9d03621fd7" alt="18935f1eb38d66b41c55a2df8753c674.png"></p>
+<p><img src=":/1c557ea1883545578cea6d14273b4cb0" alt="3126e1cb07286bf23cd6430ff93049b0.png"></p>
+<p><img src=":/2e754c7921d946b9b67c220548f8c5bb" alt="be1909787fdc65a5285569941437303c.png"></p>
+<h2 id="复合求导公式"><a href="#复合求导公式" class="headerlink" title="复合求导公式"></a>复合求导公式</h2><p><img src=":/45d6493e69eb46c6b1e98fcb78c9c4cb" alt="adabf0176e0a465dfaf20d6cfe8b4ad8.png"></p>
+<p><strong>乘法求导法则</strong></p>
+<p><img src=":/a66ba452931b4c9681480ab48e52e65c" alt="7042bfc16d78ecfd7580572593865fb2.png"><br><strong>链式求导法则</strong></p>
+<p><img src=":/5b9719a50f444ce09362b0e4f52fb714" alt="4af14cc0557e52034b5a3e0b449d2ff0.png"></p>
+<p><img src=":/36ac1c6770a847189025a14d78536f16" alt="5b50c90207bb8b11dd2ef12b6092301c.png"></p>
+<h2 id="指数的导数"><a href="#指数的导数" class="headerlink" title="指数的导数"></a>指数的导数</h2><p>dx dy的意义在于坐标的微小变化，即是点的移动，而<br><strong>在经历了dx dy的微小变化后，这个点仍然落在原方程上，也就是ds=0</strong><br>左边和右边的d值一样，等式依然成立，点仍然落在我的函数曲线上<br>点可以落在我曲线上的话，在步长很小的情况下，相当于在切线上，也就是说此时dy/dx就是导数<br><img src=":/c037293c39a240ad93d0c40f3e1a8c0d" alt="afea1e739c7d7a03bd275b4b64ca3180.png"></p>
+<p><img src=":/e8a336659fe44bae902b905efa8a08fa" alt="bad36a58df5d86c67e011ffbfe8eaa6c.png"></p>
+<h2 id="求取极限"><a href="#求取极限" class="headerlink" title="求取极限"></a>求取极限</h2><p><img src=":/3ff8bec76f94404fa26805ae6e8f7270" alt="929a4323bcfea9b563141b9014982eb1.png"></p>
+<p>因为实在逼近的过程中，实际上是一个很小的dx对应的分母分子的df，所以会有一个比例，上下极限是0不代表是0，可能一个是0.000005，一个是0.000001,然后比例就是5</p>
+<p><img src=":/d70e4f0b588243c293f88cd551a3a864" alt="335194a67428b81edcd9a308e95baea3.png"></p>
+<h3 id="洛必达法则"><a href="#洛必达法则" class="headerlink" title="洛必达法则"></a>洛必达法则</h3><p><img src=":/64ab627b6a8246e7b03ae5d85b1eb7dc" alt="2d5dd3afce54fdb87b6d36345b074efb.png"></p>
+<h2 id="积分"><a href="#积分" class="headerlink" title="积分"></a>积分</h2><p>在每个离散部分 速度是恒定值,因此可以用速度乘以时间</p>
+<p><img src=":/4f44e07f330d430e86e8aec2b37a8d64" alt="a69f70549df2cce5efac34babd266d25.png"></p>
+<p><img src=":/3756faa7e691462183e30604c02d434b" alt="3139afda8cb236d3ff4c696c06d522c2.png"></p>
+<h2 id="二阶导数"><a href="#二阶导数" class="headerlink" title="二阶导数"></a>二阶导数</h2><p><img src=":/1f2e475f80334751b8c6128cffc30e74" alt="542d901d222fe441c7ea375a1574e6ad.png"></p>
+<p><strong>加速度的导数</strong><br>也就是我们所说的推背感</p>
+<p><img src=":/3be9828eb6f047b783841b4a783d4a0d" alt="345d32ac12a82e6e0c2d0b593d259835.png"></p>
+<p><strong>泰勒级数与二阶导的关系</strong><br>原来是这样</p>
+<p><img src=":/a48e06cf07744b279ce447e22c93da41" alt="23efd7084fd5717102e46cf66a167ad9.png"></p>
+<p><strong>收敛半径</strong></p>
+<p><img src=":/3ae1c730e24a44df90f50939d2b2f59d" alt="31e28f89318166ca43a77e8b6d899b97.png"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/07/19/%E5%BE%AE%E7%A7%AF%E5%88%86/" data-id="ckcsz9f1r0000gli8aq9z8b2w" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2020/05/19/%E6%9C%80%E4%BC%98%E5%8C%96/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">最优化</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/07/19/%E5%BE%AE%E7%A7%AF%E5%88%86/">微积分</a>
+          </li>
+        
+          <li>
+            <a href="/2020/05/19/%E6%9C%80%E4%BC%98%E5%8C%96/">最优化</a>
+          </li>
+        
+          <li>
+            <a href="/2020/05/19/%E5%8F%A4%E6%9C%88%E5%B1%85%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">古月居学习记录</a>
+          </li>
+        
+          <li>
+            <a href="/2020/04/30/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%AC%94%E8%AE%B0/">线性代数笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2020/04/30/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">吴恩达机器学习笔记</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 winters<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
