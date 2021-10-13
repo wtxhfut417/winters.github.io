@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://wtxhfut417.github.io/gridea/</id>
+    <id>https://wtxhfut417.github.io</id>
     <title>Gridea</title>
-    <updated>2021-10-13T07:53:08.065Z</updated>
+    <updated>2021-10-13T07:55:39.227Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://wtxhfut417.github.io/gridea/"/>
-    <link rel="self" href="https://wtxhfut417.github.io/gridea/atom.xml"/>
+    <link rel="alternate" href="https://wtxhfut417.github.io"/>
+    <link rel="self" href="https://wtxhfut417.github.io/atom.xml"/>
     <subtitle>温故而知新</subtitle>
-    <logo>https://wtxhfut417.github.io/gridea/images/avatar.png</logo>
-    <icon>https://wtxhfut417.github.io/gridea/favicon.ico</icon>
+    <logo>https://wtxhfut417.github.io/images/avatar.png</logo>
+    <icon>https://wtxhfut417.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, Gridea</rights>
     <entry>
         <title type="html"><![CDATA[如何使用gridea搭建博客]]></title>
-        <id>https://wtxhfut417.github.io/gridea/post/ru-he-shi-yong-gridea-da-jian-bo-ke/</id>
-        <link href="https://wtxhfut417.github.io/gridea/post/ru-he-shi-yong-gridea-da-jian-bo-ke/">
+        <id>https://wtxhfut417.github.io/post/ru-he-shi-yong-gridea-da-jian-bo-ke/</id>
+        <link href="https://wtxhfut417.github.io/post/ru-he-shi-yong-gridea-da-jian-bo-ke/">
         </link>
         <updated>2021-10-13T07:01:47.000Z</updated>
         <content type="html"><![CDATA[<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2021/10/13/LvjQme4VkSUZiyE.png" alt="" loading="lazy"></figure>
@@ -21,8 +21,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Hello Gridea]]></title>
-        <id>https://wtxhfut417.github.io/gridea/post/hello-gridea/</id>
-        <link href="https://wtxhfut417.github.io/gridea/post/hello-gridea/">
+        <id>https://wtxhfut417.github.io/post/hello-gridea/</id>
+        <link href="https://wtxhfut417.github.io/post/hello-gridea/">
         </link>
         <updated>2018-12-11T16:00:00.000Z</updated>
         <summary type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
