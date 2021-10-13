@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>吴恩达机器学习笔记 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="逻辑回归逻辑回归的决策边界逻辑回归的代价函数特性：预测1：越靠近1代价越小，越靠近0代价越大        &amp;emsp;    &amp;emsp;&amp;emsp;预测0：越靠近0代价越小，越靠近1代价越大  最终的代价函数最终如下图  也就是说这个结果经过两层，第一层sigmod，第二层是预测函数 经过梯度下降求导后与线性回归的形式相同  正则化特征过多造成过拟合，这里我不理解，特征是x,权重是theta，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="吴恩达机器学习笔记">
+<meta property="og:url" content="http://example.com/2020/04/30/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="逻辑回归逻辑回归的决策边界逻辑回归的代价函数特性：预测1：越靠近1代价越小，越靠近0代价越大        &amp;emsp;    &amp;emsp;&amp;emsp;预测0：越靠近0代价越小，越靠近1代价越大  最终的代价函数最终如下图  也就是说这个结果经过两层，第一层sigmod，第二层是预测函数 经过梯度下降求导后与线性回归的形式相同  正则化特征过多造成过拟合，这里我不理解，特征是x,权重是theta，">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2020/04/30/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/:/d945d787eba04dca99ac7217f6265aa8">
+<meta property="og:image" content="http://example.com/2020/04/30/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/:/9d4f1279fb244e648e5c81d087fa2503">
+<meta property="og:image" content="http://example.com/2020/04/30/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/:/599c1395eaf04b7c918f669dccc7dca0">
+<meta property="og:image" content="http://example.com/2020/04/30/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/:/266826b50b0645f6a3afb7b49a54319d">
+<meta property="og:image" content="http://example.com/2020/04/30/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/:/65f9e013bbb3406483a897666817c23d">
+<meta property="og:image" content="http://example.com/2020/04/30/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/:/da77dc0653a74d44a051b2bd3002fb94">
+<meta property="article:published_time" content="2020-04-30T13:13:21.000Z">
+<meta property="article:modified_time" content="2020-04-30T13:14:41.000Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2020/04/30/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/:/d945d787eba04dca99ac7217f6265aa8">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-吴恩达机器学习笔记" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2020/04/30/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="article-date">
+  <time class="dt-published" datetime="2020-04-30T13:13:21.000Z" itemprop="datePublished">2020-04-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      吴恩达机器学习笔记
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="逻辑回归"><a href="#逻辑回归" class="headerlink" title="逻辑回归"></a>逻辑回归</h1><h2 id="逻辑回归的决策边界"><a href="#逻辑回归的决策边界" class="headerlink" title="逻辑回归的决策边界"></a>逻辑回归的决策边界</h2><h2 id="逻辑回归的代价函数"><a href="#逻辑回归的代价函数" class="headerlink" title="逻辑回归的代价函数"></a>逻辑回归的代价函数</h2><p>特性：预测1：越靠近1代价越小，越靠近0代价越大<br>        &emsp;    &emsp;&emsp;预测0：越靠近0代价越小，越靠近1代价越大</p>
+<p><img src=":/d945d787eba04dca99ac7217f6265aa8" alt="47728021cc656f7a58bde3137e914f6b.png"></p>
+<p><strong>最终的代价函数最终如下图</strong></p>
+<p><img src=":/9d4f1279fb244e648e5c81d087fa2503" alt="1ece35a72a4e95710872aacf93d6b3cb.png"></p>
+<p>也就是说这个结果经过两层，第一层sigmod，第二层是预测函数</p>
+<p><strong>经过梯度下降求导后</strong><br>与线性回归的形式相同</p>
+<p><img src=":/599c1395eaf04b7c918f669dccc7dca0" alt="9d047daf566ad4756668e74947aae896.png"></p>
+<h1 id="正则化"><a href="#正则化" class="headerlink" title="正则化"></a>正则化</h1><p>特征过多造成过拟合，<br>这里我不理解，特征是x,权重是theta，关系是怎样的（x1x2这种项的产生）?<br>粗略理解：x1、2等是特征的个数（维度），次方越高，曲线越曲折。<br><strong>在这张图里特征的维度是1</strong></p>
+<p><img src=":/266826b50b0645f6a3afb7b49a54319d" alt="861f5d2dd9da2626a690fa0a4021265a.png"></p>
+<p>解决过拟合的方法：1是通过减少特征的数量，而是通过正则化来解决</p>
+<h2 id="线性回归的正则化"><a href="#线性回归的正则化" class="headerlink" title="线性回归的正则化"></a>线性回归的正则化</h2><p><img src=":/65f9e013bbb3406483a897666817c23d" alt="e96aaf56851db75bc36cd66558788539.png"></p>
+<p>添加正则化， 函数的和，这里的lamda是正则化参数（适当选取</p>
+<p><img src=":/da77dc0653a74d44a051b2bd3002fb94" alt="fe133687e1e3881f742a0c87f3ce7ed6.png"></p>
+<p>再具体到梯度下降</p>
+<h2 id="逻辑回归的正则化"><a href="#逻辑回归的正则化" class="headerlink" title="逻辑回归的正则化"></a>逻辑回归的正则化</h2>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/04/30/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" data-id="ckupahvun0004wui8ham6cp4d" data-title="吴恩达机器学习笔记" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/04/30/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%AC%94%E8%AE%B0/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          线性代数笔记
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/10/13/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2021/09/24/%E5%8C%BA%E5%9D%97%E9%93%BE%E7%AC%94%E8%AE%B0/">区块链笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2021/09/24/hexo%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/">hexo使用方法</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/25/%E7%BC%93%E8%A7%A3%E6%97%A5%E5%B8%B8%E7%84%A6%E8%99%91%E5%92%8C%E5%8A%A9%E7%9C%A0/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/20/nil%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

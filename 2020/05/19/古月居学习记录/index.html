@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="准备工作：安装g++编译器安装python解析器  cpp:main函数for循环：初始值，结束条件，变化每句话要；结束每段需要{}来隔开 ROSros是什么减少软件复用率 通讯机制松耦合不同的节点，每个节点语言也不一定一样， 其中的概念 节点：   项目列表完成独立功能的可执行文件， 不同节点可以使用不同的语言，可在不同主机，名称必须唯一  2.节点管理器：  命名和注册节点 帮节点建立连接（婚">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2020/05/19/%E5%8F%A4%E6%9C%88%E5%B1%85%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="准备工作：安装g++编译器安装python解析器  cpp:main函数for循环：初始值，结束条件，变化每句话要；结束每段需要{}来隔开 ROSros是什么减少软件复用率 通讯机制松耦合不同的节点，每个节点语言也不一定一样， 其中的概念 节点：   项目列表完成独立功能的可执行文件， 不同节点可以使用不同的语言，可在不同主机，名称必须唯一  2.节点管理器：  命名和注册节点 帮节点建立连接（婚">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2020/05/19/%E5%8F%A4%E6%9C%88%E5%B1%85%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/:/0c3aa916513f4e60abe0a7d11d70268d">
+<meta property="og:image" content="http://example.com/2020/05/19/%E5%8F%A4%E6%9C%88%E5%B1%85%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/:/0bf46d0ec2484174ab5f9776f364f02c">
+<meta property="og:image" content="http://example.com/2020/05/19/%E5%8F%A4%E6%9C%88%E5%B1%85%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/:/af5f636629c8456ea2ce1f288c98fc3f">
+<meta property="og:image" content="http://example.com/2020/05/19/%E5%8F%A4%E6%9C%88%E5%B1%85%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/:/048e6619c1ee4b94a5869d1bb9a2d850">
+<meta property="og:image" content="http://example.com/2020/05/19/%E5%8F%A4%E6%9C%88%E5%B1%85%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/:/62ad8cd77ffd4f2ca69a251ae10b3987">
+<meta property="og:image" content="http://example.com/2020/05/19/%E5%8F%A4%E6%9C%88%E5%B1%85%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/:/bee573830c7941c592ea1a101af79d72">
+<meta property="og:image" content="http://example.com/2020/05/19/%E5%8F%A4%E6%9C%88%E5%B1%85%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/:/feb50edfe48f4f2186ad928a30648b03">
+<meta property="og:image" content="http://example.com/2020/05/19/%E5%8F%A4%E6%9C%88%E5%B1%85%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/:/e259c536362642d2aec9e7140f99d9d6">
+<meta property="og:image" content="http://example.com/2020/05/19/%E5%8F%A4%E6%9C%88%E5%B1%85%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/:/b0457de8819b4a8c8aa98b71bd8c7445">
+<meta property="og:image" content="http://example.com/2020/05/19/%E5%8F%A4%E6%9C%88%E5%B1%85%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/:/512c5418d90d499ba8dde1de73747dd5">
+<meta property="og:image" content="http://example.com/2020/05/19/%E5%8F%A4%E6%9C%88%E5%B1%85%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/:/38626324dc1a4ac0922ed3ef14289102">
+<meta property="og:image" content="http://example.com/2020/05/19/%E5%8F%A4%E6%9C%88%E5%B1%85%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/:/9babbd9f78f349f7a85403ed551ecff7">
+<meta property="og:image" content="http://example.com/2020/05/19/%E5%8F%A4%E6%9C%88%E5%B1%85%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/:/038d5d9b2837464eb2eb5aa2f1d8a013">
+<meta property="og:image" content="http://example.com/2020/05/19/%E5%8F%A4%E6%9C%88%E5%B1%85%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/:/e5fdbbf894be4f71a0911d29a86dbe24">
+<meta property="article:published_time" content="2020-05-18T23:27:00.000Z">
+<meta property="article:modified_time" content="2020-05-18T23:27:00.000Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2020/05/19/%E5%8F%A4%E6%9C%88%E5%B1%85%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/:/0c3aa916513f4e60abe0a7d11d70268d">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-古月居学习记录" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2020/05/19/%E5%8F%A4%E6%9C%88%E5%B1%85%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" class="article-date">
+  <time class="dt-published" datetime="2020-05-18T23:27:00.000Z" itemprop="datePublished">2020-05-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>准备工作：安装g++编译器<br>安装python解析器</p>
+<hr>
+<h3 id="cpp"><a href="#cpp" class="headerlink" title="cpp:"></a>cpp:</h3><p>main函数<br>for循环：初始值，结束条件，变化<br>每句话要；结束<br>每段需要{}来隔开</p>
+<h1 id="ROS"><a href="#ROS" class="headerlink" title="ROS"></a>ROS</h1><h2 id="ros是什么"><a href="#ros是什么" class="headerlink" title="ros是什么"></a>ros是什么</h2><p>减少软件复用率</p>
+<h3 id="通讯机制"><a href="#通讯机制" class="headerlink" title="通讯机制"></a>通讯机制</h3><p>松耦合<br>不同的节点，每个节点语言也不一定一样，</p>
+<h4 id="其中的概念"><a href="#其中的概念" class="headerlink" title="其中的概念"></a>其中的概念</h4><ol>
+<li>节点：</li>
+</ol>
+<ul>
+<li>项目列表完成独立功能的可执行文件，</li>
+<li>不同节点可以使用不同的语言，可在不同主机，<br>名称必须唯一</li>
+</ul>
+<p>2.节点管理器：</p>
+<ul>
+<li>命名和注册节点</li>
+<li>帮节点建立连接（婚姻介绍所</li>
+<li>为节点提供参数服务</li>
+</ul>
+<ol start="3">
+<li>话题通讯：异步通信</li>
+</ol>
+<ul>
+<li>发布者到订阅者</li>
+<li>总线型结构</li>
+</ul>
+<ol start="4">
+<li>消息：</li>
+</ol>
+<ul>
+<li>数据叫做消息，通信管道叫做话题</li>
+<li>定义话题消息接口：msg</li>
+</ul>
+<ol start="5">
+<li>服务：同步通信，对应于话题</li>
+</ol>
+<ul>
+<li>客户端和服务器：请求和应答</li>
+<li>使用srv文件定义请求和应答数据结构</li>
+</ul>
+<p><img src=":/0c3aa916513f4e60abe0a7d11d70268d" alt="e6af3069c7522665592924be602f06b1.png"></p>
+<ol start="6">
+<li>参数<br>更底层的rpc机制，非话题或服务</li>
+</ol>
+<p><img src=":/0bf46d0ec2484174ab5f9776f364f02c" alt="3c97fc3baf2e51ead2d025e472bbb764.png"></p>
+<ol start="7">
+<li>功能包的层级结构</li>
+</ol>
+<p><img src=":/af5f636629c8456ea2ce1f288c98fc3f" alt="1b15df4e1a97ff6eca3a99438ad3e97c.png"></p>
+<h4 id="ROS命令行工具"><a href="#ROS命令行工具" class="headerlink" title="ROS命令行工具"></a>ROS命令行工具</h4><p><img src=":/048e6619c1ee4b94a5869d1bb9a2d850" alt="1baa8ab42b703816c6820a795a0ea952.png"></p>
+<h1 id="ros使用详解"><a href="#ros使用详解" class="headerlink" title="ros使用详解"></a>ros使用详解</h1><h3 id="roscore"><a href="#roscore" class="headerlink" title="roscore"></a>roscore</h3><p>启动master 节点管理器</p>
+<p><strong>运行节点</strong>：<br>rosrun 功能包名 节点名<br>rosrun turtlesim turtlesim_node</p>
+<h2 id="命令行工具"><a href="#命令行工具" class="headerlink" title="命令行工具"></a>命令行工具</h2><p><strong>当前系统结构</strong><br>计算图<br>rqt_graph<br><strong>节点</strong><br>rosnode<br>…<br>通过rosnode info /节点名称<br>查看节点发布和订阅的数据 </p>
+<p><strong>话题</strong>指令<br>rostopic<br>…<br>rostopic pub -r(发布消息频率) 10：一直发布</p>
+<p><strong>消息</strong>指令<br>rosmsg show xxx<br>显示消息的数据结构</p>
+<p><strong>服务</strong><br>rosservice<br>当前作为客户端进行请求，服务端为海龟仿真器<br>rosservice call /spawn xxx<br>再生成一个海龟</p>
+<p><img src=":/62ad8cd77ffd4f2ca69a251ae10b3987" alt="7623e309f15bb18c4e778e0c5afba234.png"></p>
+<p><strong>话题记录工具</strong><br>rosbag record：-a -O xxx(通过文件保存轨迹)：-a:-all ，-O:保存成压缩包<br>ctrl c :文件就保存了<br>复现：rosbag play xxx.bag</p>
+<p><img src=":/bee573830c7941c592ea1a101af79d72" alt="152128d6f88a1b32dfa2b880d3f0510a.png"></p>
+<p>记录海龟的运动<br>rosbag play cmd_record.bag</p>
+<h3 id="工作空间"><a href="#工作空间" class="headerlink" title="工作空间"></a>工作空间</h3><p><img src=":/feb50edfe48f4f2186ad928a30648b03" alt="3ecc87fd82c1c34b8f9e391e05931013.png"></p>
+<p><img src=":/e259c536362642d2aec9e7140f99d9d6" alt="20f8b8d0530546c6e85032f12e92a3db.png"></p>
+<p>会在src产生一个功能包<br>回到工作空间进行编译<br>package.xml:相关信息和依赖信息<br>cmakelist进行编译规则</p>
+<h3 id="通过程序实现话题模型"><a href="#通过程序实现话题模型" class="headerlink" title="通过程序实现话题模型"></a>通过程序实现话题模型</h3><p>创建功能包，功能包里放一个c++ publisher文件，</p>
+<p>头文件</p>
+<p>节点初始化<br>节点句柄<br>发布者部分：<br>初始化：队列（十个数据是最新的数据<br>循环的频率：每隔多久发布</p>
+<p><strong>API</strong>：应用程序编程接口</p>
+<h3 id="服务数据的定义和使用"><a href="#服务数据的定义和使用" class="headerlink" title="服务数据的定义和使用"></a>服务数据的定义和使用</h3><p>定义数据的类型<br>然后编译生成头文件<br>编译过程中：<br>package.xml中添加依赖<br>cmakelist中添加编译</p>
+<h2 id="参数的使用和编程"><a href="#参数的使用和编程" class="headerlink" title="参数的使用和编程"></a>参数的使用和编程</h2><h3 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h3><p>系统通过查看环境变量，查找命令的路径–告诉系统命令的路径<br>~/.bashrc</p>
+<h3 id="参数命令行"><a href="#参数命令行" class="headerlink" title="参数命令行"></a>参数命令行</h3><p>YAML参数文件：全局的参数<br>rosparam命令行工具 list<br>get set<br>dump：保存<br>load file_name</p>
+<p><img src=":/b0457de8819b4a8c8aa98b71bd8c7445" alt="64366276f097ebe5cb6d5ad40e4b1dd4.png"></p>
+<p>代码中修改参数<br>ros::param::get/set/</p>
+<p><img src=":/512c5418d90d499ba8dde1de73747dd5" alt="475552f139338ea6467eaac75dd64dfb.png"></p>
+<h3 id="ros坐标管理系统"><a href="#ros坐标管理系统" class="headerlink" title="ros坐标管理系统"></a>ros坐标管理系统</h3><p>坐标转换<br>雷达的坐标系下的数据转换成<br>机器人坐标</p>
+<p>海龟跟随运动：根据坐标系原点之间的向量</p>
+<h3 id="海龟跟随原理"><a href="#海龟跟随原理" class="headerlink" title="海龟跟随原理"></a>海龟跟随原理</h3><p> tf坐标系广播与监听<br><strong>创建一个tf广播器，广播海龟坐标系与世界坐标系的关系</strong><br>相同程序：问题（执行两遍会出现节点名冲突：解决方法：重映射）</p>
+<p>/传入海龟在世界坐标系下的位置<br>通过x y位置 和姿态得到<br>坐标系的平移和旋转/<br><strong>tf广播器实现具体过程</strong><br>1.定义广播器<br>2.创建坐标变换值<br>3.发布坐标变换</p>
+<h3 id="launch启动文件"><a href="#launch启动文件" class="headerlink" title="launch启动文件"></a>launch启动文件</h3><p>launch启动多节点<br>pkg 所在功能包  name：运行时名称 type：节点可执行文件名称``</p>
+<p><img src=":/38626324dc1a4ac0922ed3ef14289102" alt="50c164dbe24ed2785e429ee9a56d437b.png"></p>
+<h5 id="通过launch文件设置参数"><a href="#通过launch文件设置参数" class="headerlink" title="通过launch文件设置参数"></a>通过launch文件设置参数</h5><ol>
+<li>rosparam 加载参数文件中的参数</li>
+<li> param设置参数，放在参数服务器中</li>
+</ol>
+<p><strong>另外一种文件内部的变量</strong><br>arg：<strong>使用方法</strong><br>$(arg 参数名)</p>
+<ol>
+<li>param调用</li>
+<li>node调用：节点的输入参数</li>
+<li></li>
+</ol>
+<p><strong>remap</strong><br>重映射，为文件改名字，改完原来的就没有了</p>
+<p><strong>include</strong></p>
+<p>包含其他launch文件</p>
+<p><img src=":/9babbd9f78f349f7a85403ed551ecff7" alt="31d514a2792e6d82eb5e78b47b2872d0.png"></p>
+<h3 id="rqt可视化工具"><a href="#rqt可视化工具" class="headerlink" title="rqt可视化工具"></a>rqt可视化工具</h3><ol>
+<li>rqt_console: 控制台 整合error warning</li>
+<li>rpt_plot：显示话题数据绘图</li>
+<li>rpt_image_view：渲染摄像头</li>
+<li>直接rqt，都有</li>
+<li></li>
+</ol>
+<h3 id="rviz"><a href="#rviz" class="headerlink" title="rviz"></a>rviz</h3><p><img src=":/038d5d9b2837464eb2eb5aa2f1d8a013" alt="0e8b4a61a7e971cb55dcf9bcc5468a7c.png"></p>
+<h3 id="gazebo"><a href="#gazebo" class="headerlink" title="gazebo"></a>gazebo</h3><p>仿真：产生数据</p>
+<p><img src=":/e5fdbbf894be4f71a0911d29a86dbe24" alt="e5522955c9425d5849ada7ba7d27f526.png"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/05/19/%E5%8F%A4%E6%9C%88%E5%B1%85%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" data-id="ckupahvum0003wui861duag7b" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/05/19/%E6%9C%80%E4%BC%98%E5%8C%96/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          最优化
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/04/30/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%AC%94%E8%AE%B0/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">线性代数笔记</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/10/13/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2021/09/24/%E5%8C%BA%E5%9D%97%E9%93%BE%E7%AC%94%E8%AE%B0/">区块链笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2021/09/24/hexo%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/">hexo使用方法</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/25/%E7%BC%93%E8%A7%A3%E6%97%A5%E5%B8%B8%E7%84%A6%E8%99%91%E5%92%8C%E5%8A%A9%E7%9C%A0/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/20/nil%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
